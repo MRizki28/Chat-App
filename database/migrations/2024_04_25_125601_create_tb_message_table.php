@@ -12,7 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tb_message', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
+            $table->foreignUuid('id_sender')->constrained('users');
+            $table->foreignUuid('id_receiver')->constrained('users');
+            $table->text('message');
             $table->timestamps();
         });
     }
