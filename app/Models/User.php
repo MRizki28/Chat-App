@@ -22,4 +22,8 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function message() {
+        return $this->hasMany(MessageModel::class, 'id_sender');
+    }
+
 }

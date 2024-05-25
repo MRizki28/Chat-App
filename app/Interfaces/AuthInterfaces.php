@@ -9,4 +9,6 @@ interface AuthInterfaces
 {
     public function register(AuthRequest $request);
     public function login(Request $request);
+    public function getAllData();
+    public function logout(Request $request);
 }

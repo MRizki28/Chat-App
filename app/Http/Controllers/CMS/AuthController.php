@@ -25,4 +25,14 @@ class AuthController extends Controller
     {
         return $this->AuthRepo->login($request);
     }
+
+    public function getAllData()
+    {
+        return $this->AuthRepo->getAllData();
+    }
+
+    public function logout(Request $request)
+    {
+        return $this->AuthRepo->logout($request);
+    }
 }

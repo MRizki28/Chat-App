@@ -76,4 +76,26 @@ class AuthRepositories implements AuthInterfaces
             return $this->error($th->getMessage());
         }
     }
+
+    public function getAllData()
+    {
+        $id = Auth::user()->id;
+        $data = $this->userModel->where("id", '!=', $id)->get();
+        return $this->success($data);
+    }
+
+    public function logout(Request $request)
+    {
+        try {
+            $request->user('web')->tokens()->delete();
+            Auth::guard('web')->logout();
+
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+
+            return $this->success();
+        } catch (\Throwable $th) {
+            return $this->error($th);
+        }
+    }
 }

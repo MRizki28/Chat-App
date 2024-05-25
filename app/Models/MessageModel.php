@@ -17,4 +17,12 @@ class MessageModel extends Model
         'id_receiver',
         'message'
     ];
+
+    public function id_sender() {
+        return $this->belongsTo(User::class, 'id_sender');
+    }
+
+    public function id_receiver() {
+        return $this->belongsTo(User::class, 'id_receiver');
+    }
 }

@@ -19,4 +19,9 @@ class MessageController extends Controller
     {
         return $this->messageRepo->sendMessage($request);
     }
+
+    public function getAllMessagesForUser($userId)
+    {
+        return $this->messageRepo->getAllMessagesForUser($userId);
+    }
 }
